@@ -121,5 +121,12 @@ x1+=-15
 for i in range (2):
     oval(x1,40,8,15)
     x1+=-10
-
+x=80
+for i in range(3):
+    circle(x,30,10)
+    x+=15
+x+=-20
+for i in range(2):
+    circle(x,22,8)
+    x+=-15
 run()
