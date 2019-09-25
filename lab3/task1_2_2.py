@@ -2,7 +2,7 @@ from graph import *
 from typing import Any
 from math import *
 
-penColor('purple')
+penColor('purple')        #фон
 rectangle(0, 0, 500, 400)
 brushColor(204, 255, 255)
 rectangle(0, 0, 500, 200)
@@ -29,7 +29,7 @@ for i in range(n):
     circle(x, 310, r)
     x += 2 * r
 
-penColor(102, 51, 0)
+penColor(102, 51, 0)     #мачты
 penSize(5)
 line(55, 280, 55, 390)
 brushColor(230, 30, 0)
@@ -48,7 +48,7 @@ penColor(128, 0, 0)
 
 from math import cos, pi, sin
 
-pol = []
+pol = []                        #задняя часть корабликов
 i = 1
 t = 0
 while t != pi / 2:
@@ -77,7 +77,7 @@ penColor(50, 0, 0)
 line(295, 220, 295, 120)
 line(152,210,152,110)
 
-penSize(2)
+penSize(2)                   #кораблики
 brushColor(200, 200, 200)
 polygon([(295, 220), (390, 170), (320, 170), (295, 220)])
 polygon([(295, 120), (390, 170), (320, 170), (295, 120)])
@@ -92,7 +92,7 @@ penColor(0, 0, 240)
 brushColor(240, 243, 247)
 
 
-def oval(x, y, axemin, axemax):
+def oval(x, y, axemin, axemax):      #функция для овала
     pol = []
     i = 1
     t = 0
@@ -105,7 +105,7 @@ def oval(x, y, axemin, axemax):
     polygon(pol)
 
 
-x1 = 150
+x1 = 150                #облака
 for i in range(3):
     oval(x1, 90, 20, 40)
     x1 += -30
