@@ -29,7 +29,7 @@ for i in range(n):
     circle(x, 310, r)
     x += 2 * r
 
-penColor(102, 51, 0)     #мачты
+penColor(102, 51, 0)     #зонтики
 penSize(5)
 line(55, 280, 55, 390)
 brushColor(230, 30, 0)
