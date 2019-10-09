@@ -21,30 +21,42 @@ def add_point():
     lb['text'] = ''.join(points)
 
 
-delta_t = 500
+delta_t = 50
+
+ball = {}
 
 
 def new_ball():
-    global x, y, r, ball
+    global ball
     canv.delete(ALL)
-    x = rnd(100, 700)
-    y = rnd(100, 500)
-    r = rnd(30, 50)
-    canv.create_oval(x - r, y - r, x + r, y + r, fill=choice(colors), width=0)
+    x = ball["x"] = rnd(100, 700)
+    y = ball["y"] = rnd(100, 500)
+    r = ball["r"] = rnd(30, 50)
+    ball["dy"] = rnd(-10, 10)
+    ball["dx"] = rnd(-10, 10)
+    ball["id"] = canv.create_oval(x - r, y - r, x + r, y + r, fill=choice(colors), width=0)
+    root.after(1000, new_ball)
 
 
-def reflect_ball():
-    new_ball()
-    canv.move(ball, delta_t, delta_t)
-    root.after(delta_t, canv.move)
+def ball_move():
+    global ball
+    id = ball["id"]
+    canv.move(id, ball["dx"], ball["dy"])
+    root.after(delta_t, ball_move)
 
 
 def click(event):
+    coords = canv.coords(ball['id'])
+    print(coords,event)
+    r=ball["r"]
+    x = coords[0]+r
+    y = coords[1]+r
     if ((event.x - x) ** 2 + (event.y - y) ** 2) ** 0.5 < r:
         add_point()
 
 
-reflect_ball()
+new_ball()
+ball_move()
 lb.pack()
 canv.bind('<Button-1>', click)
 mainloop()
